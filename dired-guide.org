@@ -1,0 +1,89 @@
+#+title: Dired Cheatsheet
+#+description: Quick reference for Dired in Doom Emacs
+#+startup: showeverything
+
+* Opening Dired
+
+| Key       | Command            | Notes                                     |
+|-----------+--------------------+-------------------------------------------|
+| ~C-x d~   | ~dired~            | Open a directory prompt                   |
+| ~SPC f d~ | ~dired~            | Doom's directory browser (may vary)       |
+| ~C-x C-j~ | ~dired-jump~       | Open Dired on the current file's folder   |
+| ~-~       | ~dired-jump~       | Same as above, when evil is active        |
+
+Key bindings can vary between Doom versions. Use ~SPC h k~ and press a key to confirm what it runs.
+
+* Navigation
+
+| Key     | Action                                          |
+|---------+-------------------------------------------------|
+| ~j~ / ~k~ | Move down / up                                |
+| ~RET~   | Open the file or enter the directory            |
+| ~^~     | Go to the parent directory                      |
+| ~o~     | Open the file in the other window               |
+| ~v~     | View the file read-only                         |
+| ~TAB~   | Jump to the next subdirectory's listing         |
+| ~i~     | Insert a subdirectory into the current buffer   |
+| ~g~     | Refresh the listing                             |
+| ~q~     | Quit Dired and bury the buffer                  |
+
+* Marking
+
+| Key   | Action                                      |
+|-------+---------------------------------------------|
+| ~m~   | Mark the file at point                      |
+| ~u~   | Unmark the file at point                    |
+| ~U~   | Unmark all files                            |
+| ~t~   | Toggle all marks                            |
+| ~% m~ | Mark files whose names match a regexp       |
+| ~* /~ | Mark all directories                        |
+| ~* *~ | Mark all executables                        |
+
+Marks are how you apply a command to several files at once. Mark what you need, then run the operation.
+
+* File Operations
+
+| Key   | Action                                          |
+|-------+-------------------------------------------------|
+| ~C~   | Copy the marked files (or the file at point)    |
+| ~R~   | Rename or move the marked files                 |
+| ~D~   | Delete immediately                              |
+| ~d~   | Flag for deletion (use ~x~ to execute)          |
+| ~x~   | Execute the deletions flagged with ~d~          |
+| ~+~   | Create a new directory                          |
+| ~Z~   | Compress or uncompress                          |
+| ~=~   | Diff the file at point with its backup          |
+| ~!~   | Run a shell command on the marked files         |
+| ~&~   | Run a shell command asynchronously              |
+| ~M~   | Change the file mode (permissions)              |
+| ~G~   | Change the group                                |
+| ~O~   | Change the owner                                |
+
+* Display and Sorting
+
+| Key   | Action                                          |
+|-------+-------------------------------------------------|
+| ~(~   | Toggle detailed listing (size, date, perms)     |
+| ~s~   | Toggle sorting between name and date            |
+| ~$~   | Hide or show subdirectory contents              |
+| ~%~   | Prefix for regexp-based commands                |
+
+* Editing Names Directly (WDired)
+
+| Key       | Action                                             |
+|-----------+----------------------------------------------------|
+| ~C-x C-q~ | Make the buffer editable; rename by editing lines  |
+| ~C-c C-c~ | Apply the renames                                  |
+| ~C-c C-k~ | Discard the edits                                  |
+
+* Search and Replace Across Marked Files
+
+| Key | Action                                                 |
+|-----+--------------------------------------------------------|
+| ~Q~ | Query-replace a regexp in the marked files             |
+| ~A~ | Search the marked files for a regexp                   |
+
+* Getting Help
+
+- Press ~?~ in Dired to show the built-in help for the current buffer.
+- The Dired section of the Emacs manual is at https://www.gnu.org/software/emacs/manual/html_node/emacs/Dired.html.

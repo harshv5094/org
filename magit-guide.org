@@ -1,0 +1,102 @@
+#+title: Magit Cheatsheet
+#+description: Quick reference for Magit in Doom Emacs
+#+startup: showeverything
+
+* Opening Magit
+
+| Key       | Command                  | Notes                                  |
+|-----------+--------------------------+----------------------------------------|
+| ~SPC g g~ | ~magit-status~           | Main status buffer for current repo    |
+| ~SPC g G~ | ~magit-status-here~      | Status for the directory you are in    |
+| ~SPC g b~ | ~magit-blame~            | Blame for the current file             |
+| ~SPC g l~ | ~magit-log-current~      | Log for the current file or branch     |
+| ~SPC g d~ | ~magit-diff~             | Diff dispatch                          |
+
+Key bindings can vary between Doom versions. Use ~SPC h k~ and press a key to confirm what it runs.
+
+* Status Buffer Navigation
+
+| Key       | Action                                          |
+|-----------+-------------------------------------------------|
+| ~j~ / ~k~ | Move down / up                                  |
+| ~TAB~     | Expand or collapse the section under the cursor |
+| ~S-TAB~   | Expand or collapse all sections                 |
+| ~RET~     | Visit the file or commit at point               |
+| ~g~       | Refresh the buffer                              |
+| ~q~       | Quit the buffer                                 |
+| ~?~       | Show the command menu for the current context   |
+
+* Staging and Committing
+
+| Key       | Action                                        |
+|-----------+-----------------------------------------------|
+| ~s~       | Stage the file, hunk, or region at point      |
+| ~u~       | Unstage the file, hunk, or region at point    |
+| ~S~       | Stage all changes                             |
+| ~U~       | Unstage all changes                           |
+| ~k~       | Discard the change at point (destructive)     |
+| ~c c~     | Commit (opens the message buffer)             |
+| ~C-c C-c~ | Finish the commit (in the message buffer)     |
+| ~C-c C-k~ | Cancel the commit (in the message buffer)     |
+| ~c a~     | Amend the last commit                         |
+
+Tip: in a hunk, ~s~ on a selected region stages only those lines.
+
+* Branches
+
+| Key   | Action                                |
+|-------+---------------------------------------|
+| ~b b~ | Checkout a branch                     |
+| ~b c~ | Create a new branch and check it out  |
+| ~b n~ | Create a new branch without checkout  |
+| ~b k~ | Delete a branch                       |
+| ~b r~ | Rename a branch                       |
+
+* Remote Operations
+
+| Key   | Action                               |
+|-------+--------------------------------------|
+| ~f f~ | Fetch from the remote                |
+| ~F u~ | Pull from the upstream branch        |
+| ~P p~ | Push to the upstream branch          |
+| ~P u~ | Push to the upstream (set if empty)  |
+
+* Logs and History
+
+| Key   | Action                                         |
+|-------+------------------------------------------------|
+| ~l l~ | Log of the current branch                      |
+| ~l o~ | Log of any branch or ref                       |
+| ~l f~ | Log of the current file                        |
+| ~y y~ | Show the commit at point                       |
+| ~d d~ | Diff of the commit or working tree at point    |
+
+Inside a log buffer, ~RET~ opens the commit, ~q~ closes it, and ~j~ / ~k~ move between entries.
+
+* Merge, Rebase, Stash
+
+| Key   | Action                               |
+|-------+--------------------------------------|
+| ~m m~ | Merge a branch                       |
+| ~m a~ | Abort a merge                        |
+| ~r i~ | Interactive rebase                   |
+| ~r r~ | Rebase onto a branch                 |
+| ~r a~ | Abort a rebase                       |
+| ~z z~ | Stash all changes                    |
+| ~z p~ | Pop the latest stash                 |
+| ~z a~ | Apply the latest stash               |
+
+When a merge or rebase has conflicts, resolve the files, stage them with ~s~, then continue with the matching ~m m~ or ~r r~ action from the status buffer.
+
+* Files
+
+| Key       | Action                                   |
+|-----------+------------------------------------------|
+| ~SPC g f~ | File dispatch for the current file       |
+| ~RET~     | Visit the file at point in the status    |
+| ~C-x g~   | Open the status buffer from any buffer   |
+
+* Getting Help
+
+- Press ~?~ inside any Magit buffer to see the commands that apply right now.
+- The Magit manual is at https://magit.vc/manual/magit/.
