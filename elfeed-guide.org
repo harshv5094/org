@@ -1,0 +1,86 @@
+#+title: Elfeed Cheatsheet
+#+description: Quick reference for Elfeed in Doom Emacs
+#+startup: showeverything
+
+* Opening Elfeed
+
+| Key       | Command              | Notes                                       |
+|-----------+----------------------+---------------------------------------------|
+| ~SPC \ e~ | ~elfeed~             | Your custom keymap from config.org          |
+| ~M-x elfeed~ | ~elfeed~          | Works without the keymap                    |
+| ~M-x elfeed-update~ | ~elfeed-update~ | Fetch all feeds now                   |
+
+Your config sets the search filter to ~@1-month-ago~ and runs ~elfeed-update~ each time the search buffer opens. Feeds come from ~elfeed.org~ in your Doom config directory.
+
+* Search Buffer Navigation
+
+| Key       | Action                                        |
+|-----------+-----------------------------------------------|
+| ~j~ / ~k~ | Move down / up                                |
+| ~RET~     | Open the entry in the reading buffer          |
+| ~g~       | Refresh the search                            |
+| ~G~       | Fetch all feeds, then refresh                 |
+| ~q~       | Quit Elfeed                                   |
+| ~b~       | Open the entry in the browser                 |
+| ~y~       | Copy the entry's URL                          |
+
+* Filtering
+
+Elfeed's search bar takes a filter string. Edit it with ~/~ (or ~s~ in some setups) and press ~RET~ to apply.
+
+| Filter                 | Meaning                                |
+|------------------------+----------------------------------------|
+| ~@1-month-ago~         | Entries from the last month            |
+| ~@6-months-ago +unread~ | Unread entries from the last 6 months |
+| ~+unread~              | Unread entries only                    |
+| ~+star~                | Starred entries only                   |
+| ~-unread~              | Read entries only                      |
+| ~+youtube~             | Entries tagged ~youtube~               |
+| ~-youtube~             | Exclude entries tagged ~youtube~       |
+| ~title~ or ~"exact"~   | Match text in the title                |
+| ~@1-week-ago +emacs~   | Entries from a week ago tagged ~emacs~ |
+
+Filters combine with spaces. Use ~+tag~ to require a tag and ~-tag~ to exclude it.
+
+* Tagging
+
+| Key | Action                                  |
+|-----+-----------------------------------------|
+| ~+~ | Add a tag to the selected entries       |
+| ~-~ | Remove a tag from the selected entries  |
+| ~m~ | Mark the entry (mark as read)           |
+| ~u~ | Mark the entry as unread                |
+| ~*~ | Star or unstar the entry                |
+
+* Marking Several Entries
+
+| Key   | Action                                    |
+|-------+-------------------------------------------|
+| ~r~   | Mark the selected entries as read         |
+| ~u~   | Mark the selected entries as unread       |
+| ~t~   | Toggle a tag on the selected entries      |
+| ~C-SPC~ | Select a region of entries              |
+
+Commands act on the region when one is active, so select a range first to mark many entries at once.
+
+* Reading Buffer
+
+| Key   | Action                                          |
+|-------+-------------------------------------------------|
+| ~n~   | Next entry                                      |
+| ~p~   | Previous entry                                  |
+| ~q~   | Return to the search buffer                     |
+| ~b~   | Open the entry in the browser                   |
+| ~RET~ | Follow the link under the cursor                |
+| ~s~   | Open the entry's source in a new buffer         |
+
+* Feed Management
+
+Feeds are managed in ~elfeed.org~. Each feed is a line under a heading, and tags can be set after the URL. To pick up new feeds, edit the file and run ~M-x elfeed-org~ followed by ~M-x elfeed-update~.
+
+Use ~SPC = r~ to open ~elfeed.org~ directly, using the keymap from your config.
+
+* Getting Help
+
+- Press ~?~ in the search or reading buffer to see the built-in help.
+- The Elfeed manual is at https://github.com/skeeto/elfeed.
